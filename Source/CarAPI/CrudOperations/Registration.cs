@@ -32,98 +32,75 @@ namespace CarAPI.CrudOperations
 
                 command.Parameters.AddWithValue("@id", uid);
 
-
                 /* ვამოწმებთ მოწოდებულია თუ არა შემდეგი პარამეტრები (ყველა პარამეტრი სავალდებულო არაა), თუ მოწოდებულია
                  * მაშინ ვამოწმეთ მის ვალიდურობას, საჭიროების შემთხვევაში ვამუშავებთ და ვამატებთ მნიშვნელობას ბაზაში შესანახად 
                  */
+                {
+                    // ვამოწმებთ ბრენდს
+                    if (brand != null)
+                    {
+                        if (DataValidator.ValidateBrand(brand)) command.Parameters.AddWithValue("@brand", brand);
+                        else return new RegistrationResult(false, RegistrationResult.ResultCode.INVALID_BRAND);
+                    }
+                    else { command.Parameters.AddWithValue("@brand", DBNull.Value); }
 
-                // ვამოწმებთ ბრენდს
-                if (brand != null)
-                {
-                    if (DataValidator.ValidateBrand(brand)) command.Parameters.AddWithValue("@brand", brand);
-                    else return new RegistrationResult(false, RegistrationResult.ResultCode.INVALID_BRAND);
-                }
-                else
-                {
-                    command.Parameters.AddWithValue("@brand", DBNull.Value);
-                }
+                    // ვამოწმებთ გამოშვების წელს
+                    if (year != null)
+                    {
+                        if (DataValidator.ValidateYear(year)) command.Parameters.AddWithValue("@year", year);
+                        else return new RegistrationResult(false, RegistrationResult.ResultCode.INVALID_YEAR);
+                    }
+                    else { command.Parameters.AddWithValue("@year", DBNull.Value); }
 
-                // ვამოწმებთ გამოშვების წელს
-                if (year != null)
-                {
-                    if (DataValidator.ValidateYear(year)) command.Parameters.AddWithValue("@year", year);
-                    else return new RegistrationResult(false, RegistrationResult.ResultCode.INVALID_YEAR);
-                }
-                else
-                {
-                    command.Parameters.AddWithValue("@year", DBNull.Value);
-                }
+                    // ვამოწმებთ ტექსტურ აღწერას
+                    if (desc != null)
+                    {
+                        if (DataValidator.ValidateDescription(desc)) command.Parameters.AddWithValue("@desc", desc);
+                        else return new RegistrationResult(false, RegistrationResult.ResultCode.INVALID_DESCRIPTION);
+                    }
+                    else { command.Parameters.AddWithValue("@desc", DBNull.Value); }
 
-                // ვამოწმებთ ტექსტურ აღწერას
-                if (desc != null)
-                {
-                    if (DataValidator.ValidateDescription(desc)) command.Parameters.AddWithValue("@desc", desc);
-                    else return new RegistrationResult(false, RegistrationResult.ResultCode.INVALID_DESCRIPTION);
-                }
-                else
-                {
-                    command.Parameters.AddWithValue("@desc", DBNull.Value);
-                }
+                    // ვამოწმებთ სურათს
+                    if (img != null)
+                    {
+                        if (DataValidator.ValidateImage(img))
+                            command.Parameters.AddWithValue("@url", DataProcessor.UploadImage(img,
+                                Request.Host.Value));
+                        else return new RegistrationResult(false, RegistrationResult.ResultCode.INVALID_IMAGE);
+                    }
+                    else { command.Parameters.AddWithValue("@url", DBNull.Value); }
 
-                // ვამოწმებთ სურათს
-                if (img != null)
-                {
-                    if (DataValidator.ValidateImage(img))
-                        command.Parameters.AddWithValue("@url", DataProcessor.UploadImage(img,
-                            Request.Host.Value));
-                    else return new RegistrationResult(false, RegistrationResult.ResultCode.INVALID_IMAGE);
-                }
-                else
-                {
-                    command.Parameters.AddWithValue("@url", DBNull.Value);
-                }
+                    // ვამოწმებთ მახასიათებლებს
+                    if (features != null)
+                    {
+                        if (DataValidator.ValidateFeatures(features)) command.Parameters.AddWithValue("@feat", features);
+                        else return new RegistrationResult(false, RegistrationResult.ResultCode.INVALID_FEATURES);
+                    }
+                    else { command.Parameters.AddWithValue("@feat", DBNull.Value); }
 
-                // ვამოწმებთ მახასიათებლებს
-                if (features != null)
-                {
-                    if (DataValidator.ValidateFeatures(features)) command.Parameters.AddWithValue("@feat", features);
-                    else return new RegistrationResult(false, RegistrationResult.ResultCode.INVALID_FEATURES);
-                }
-                else
-                {
-                    command.Parameters.AddWithValue("@feat", DBNull.Value);
-                }
+                    // ვამოწმებთ მოწოდებულ ღირებულებას
+                    if (cost != null)
+                    {
+                        if (DataValidator.ValidateCost(cost)) command.Parameters.AddWithValue("@cost", cost);
+                        else return new RegistrationResult(false, RegistrationResult.ResultCode.INVALID_COST);
+                    }
+                    else { command.Parameters.AddWithValue("@cost", DBNull.Value); }
 
-                // ვამოწმებთ მოწოდებულ ღირებულებას
-                if (cost != null)
-                {
-                    if (DataValidator.ValidateCost(cost)) command.Parameters.AddWithValue("@cost", cost);
-                    else return new RegistrationResult(false, RegistrationResult.ResultCode.INVALID_COST);
-                }
-                else
-                {
-                    command.Parameters.AddWithValue("@cost", DBNull.Value);
-                }
+                    // ვამოწმებთ მოწოდებულ ვალუტას
+                    if (curr != null)
+                    {
+                        if (DataValidator.ValidateCurrency(curr)) command.Parameters.AddWithValue("@curr", curr);
+                        else return new RegistrationResult(false, RegistrationResult.ResultCode.INVALID_CURRENCY);
+                    }
+                    else { command.Parameters.AddWithValue("@curr", DBNull.Value); }
 
-                // ვამოწმებთ მოწოდებულ ვალუტას
-                if (curr != null)
-                {
-                    if (DataValidator.ValidateCurrency(curr)) command.Parameters.AddWithValue("@curr", curr);
-                    else return new RegistrationResult(false, RegistrationResult.ResultCode.INVALID_CURRENCY);
-                }
-                else
-                {
-                    command.Parameters.AddWithValue("@curr", DBNull.Value);
-                }
+                    // ვითვლით ფასს ლარში
+                    if (curr != null && cost != null)
+                    {
+                        command.Parameters.AddWithValue("@costGel", DataProcessor.GetCostGel(cost ?? default(double), curr));
+                    }
+                    else { command.Parameters.AddWithValue("@costGel", DBNull.Value); }
 
-                // ვითვლით ფასს ლარში
-                if (curr != null && cost != null)
-                {
-                    command.Parameters.AddWithValue("@costGel", DataProcessor.GetCostGel(cost ?? default(double), curr));
-                }
-                else
-                {
-                    command.Parameters.AddWithValue("@costGel", DBNull.Value);
                 }
 
                 // ვუშვებთ ბრძანებას (წარუმატებლობის შემთხვევაში ვაბრუნებთ შეცდომას)
