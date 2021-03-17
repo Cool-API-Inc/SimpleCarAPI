@@ -1,8 +1,7 @@
 ## SimpleCarAPI
 Example Of Simple CRUD API
 
----
-Note: Please Change Database Connection String Located In `SimpleCarAPI > Source > CarAPI > DatabaseConnector.cs` Before Executing Program 
+* Note: Please Change Database Connection String Located In `SimpleCarAPI > Source > CarAPI > DatabaseConnector.cs` Before Executing Program *
 
 ---
 #### Important Routes
@@ -33,7 +32,7 @@ Adds car record and returns registration ID, (along with return code and success
 (5) - features value (single integer), multiplication of feature codes
 
 ##### Python Example:
-```
+``` python
 requests.post('https://{host}:{port}/API/RegisterCar', verify=False,
     params = { 
         'brand': 'BMW',
