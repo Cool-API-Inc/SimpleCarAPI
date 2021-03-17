@@ -5,7 +5,7 @@ Example Of Simple CRUD API
 _Note: Please Change Database Connection String Located In `SimpleCarAPI > Source > CarAPI > DatabaseConnector.cs` Before Executing Program_
 
 ---
-#### Important Routes
+#### Important Routes:
 * [/API/*](https://github.com/Cool-API-Inc/SimpleCarAPI/blob/main/Source/CarAPI/Controllers/MainHandler.cs) - CRUD Pages
     * [/API/RegisterCar](https://github.com/Cool-API-Inc/SimpleCarAPI/blob/main/Source/CarAPI/CrudOperations/Registration.cs) - Serves Car Registration
     * [/API/UpdateCar](https://github.com/Cool-API-Inc/SimpleCarAPI/blob/main/Source/CarAPI/CrudOperations/Updation.cs) - Server Modification Of Car Record
