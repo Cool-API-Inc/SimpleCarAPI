@@ -29,7 +29,7 @@ Adds car record and returns registration ID, (along with return code and success
 6. cost: car cost `[required]`
 7. curr: cost currency (one of the valid) `[required]`
 
-(4) - image file which will be uploaded on the server and be accessible using the url returned <br/>
+(4) - image file which will be uploaded on the server and be accessible using the url returned  
 (5) - features value (single integer), multiplication of feature codes
 
 ##### Python Example:
