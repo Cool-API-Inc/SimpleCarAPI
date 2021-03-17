@@ -1,7 +1,7 @@
 ## SimpleCarAPI
 Example Of Simple CRUD API
 
-* Note: Please Change Database Connection String Located In `SimpleCarAPI > Source > CarAPI > DatabaseConnector.cs` Before Executing Program *
+_Note: Please Change Database Connection String Located In `SimpleCarAPI > Source > CarAPI > DatabaseConnector.cs` Before Executing Program_
 
 ---
 #### Important Routes
