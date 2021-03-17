@@ -1,16 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
+﻿
 namespace CarAPI.ResultTypes
 {
-    public class DeletionResult 
+    public class DeletionResult : BaseResult
     {
-        public bool Success { get; set; }
-        public DeletionResult(bool success)
-        {
-            Success = success;
-        }
+        public DeletionResult(bool success) : base(success) { /* ვარეზერვებთ სამომავლო გამოყენებისთვის */ }
     }
 }

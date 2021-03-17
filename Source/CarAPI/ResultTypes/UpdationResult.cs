@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
+﻿
 namespace CarAPI.ResultTypes
 {
-    public class UpdationResult
+    public class UpdationResult : BaseResult
     {
         /* შედეგის კოდი */
         public enum ResultCode
@@ -28,14 +24,12 @@ namespace CarAPI.ResultTypes
             UNKNOWN_ERROR
         };
 
-        public bool Success { get; set; }
         public int FieldsAffected { get; set; }
         public ResultCode ReturnCode { get; set; }
         public string ReturnMessage { get; set; }
 
-        public UpdationResult(bool success, ResultCode returnCode, int fieldsAffected = 0)
+        public UpdationResult(bool success, ResultCode returnCode, int fieldsAffected = 0) : base(success)
         {
-            Success = success;
             ReturnCode = returnCode;
             FieldsAffected = fieldsAffected;
             ReturnMessage = ReturnCode.ToString();
