@@ -1,18 +1,19 @@
 ## SimpleCarAPI
 Example Of Simple CRUD API
 
+---
 _Note: Please Change Database Connection String Located In `SimpleCarAPI > Source > CarAPI > DatabaseConnector.cs` Before Executing Program_
 
 ---
 #### Important Routes
-* ==/API/*== - CRUD Pages
-    * ==/API/RegisterCar== - Serves Car Registration
-    * ==/API/UpdateCar== - Server Modification Of Car Record
-    * ==/API/DeleteCar== - Serves Deletion Of Car Record
-    * ==/API/GetCar== - Can Be Used To View Info Of The Selected Car Or All Cars Registered
-    * ==/API/GetProperties== - To List All Features Of Selected Car
-    * ==/API/SetProperties== - To Modify/Delete/Add Features Of Selected Car
-* ==/IMG/*== - Uploaded Images 
+* __/API/*__ - CRUD Pages
+    * __/API/RegisterCar__ - Serves Car Registration
+    * __/API/UpdateCar__ - Server Modification Of Car Record
+    * __/API/DeleteCar__ - Serves Deletion Of Car Record
+    * __/API/GetCar__ - Can Be Used To View Info Of The Selected Car Or All Cars Registered
+    * __/API/GetProperties__ - To List All Features Of Selected Car
+    * __/API/SetProperties__ - To Modify/Delete/Add Features Of Selected Car
+* __/IMG/*__ - Uploaded Images 
 
 ---
 
@@ -64,7 +65,7 @@ Requires id parameter, every other parameter is optional, if set, value will be 
 Returns number of fields affected (along with return code and success status).
 
 ##### Python Example:
-```
+``` python
 requests.post('https://{host}:{port}/API/UpdateCar', verify=False,
     params = {
         'id': 'xxx-xxx-xxx',
@@ -80,7 +81,7 @@ Requires single parameter (id) to remove car record and returns success status.
 ---
 
 ### Selecting Car(s)
-If ==id==  not specified, returns list of registered cars (along with success status). Else, list contains only the element with speficied ==id==.
+If __id__  not specified, returns list of registered cars (along with success status). Else, list contains only the element with speficied __id__.
 
 ---
 
@@ -100,7 +101,7 @@ Requires id parameter and takes optional booleans, if set, adds or removes cores
 11. mltwheel: corresponds to MULTI_STEERING_WHEEL feature
 
 ##### Python Example:
-```
+``` python
 requests.post(setPropUrl, verify=False,
     params = {
         'id': 'xxx-xxx-xxx',
