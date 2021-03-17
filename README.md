@@ -102,7 +102,7 @@ Requires id parameter and takes optional booleans, if set, adds or removes cores
 
 ##### Python Example:
 ``` python
-requests.post(setPropUrl, verify=False,
+requests.post('https://{host}:{port}/API/SetProperties', verify=False,
     params = {
         'id': 'xxx-xxx-xxx',
         'bluetooth': False, # removing Bluetooth
