@@ -12,7 +12,8 @@ namespace CarAPI
 {
     public static class DatabaseConnector
     {
-        private static string connString = @"[CONNECTION STRING HERE]]";
+        // შეცვალეთ მისამართი პროგრამის გაშვებამდე 
+        private static string connString = @"Server=localhost\SQLEXPRESS;Database=CAR_API_DB;Trusted_Connection=True;";
 
         // ფუნქცია უშვებს SQL ბრძანებას სკალარულად და აბრუნებს შედეგს (წარმატებით გაეშვა თუ არა)
         public static bool ExecuteCommand(SqlCommand command)
@@ -43,6 +44,8 @@ namespace CarAPI
         }
 
 
+        static object SafeValue(object par) => (par == DBNull.Value ? null : par);
+
         // ფუნქცია უშვებს SQL ბრძანებას და შედეგს აბრუნებს Car ობიექტების კოლექციის სახით
         public static List<Car> ExecuteWithReader(SqlCommand command)
         {
@@ -55,9 +58,14 @@ namespace CarAPI
                 SqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    cars.Add(new Car((string)reader["CarID"], (string)reader["Brand"], (int)reader["PYear"],
-                        (string)reader["CarDesc"], (string)reader["ImgUrl"], (int)reader["Features"],
-                        (double)reader["Cost"], (string)reader["Currency"], (double)reader["CostGel"]));
+                    cars.Add(new Car(
+                            (string)SafeValue(reader["CarID"]), (string)SafeValue(reader["Brand"]), 
+                            (int)SafeValue(reader["PYear"]), (string)SafeValue(reader["CarDesc"]), 
+                            (string)SafeValue(reader["ImgUrl"]), (int)SafeValue(reader["Features"]),
+                            (double)SafeValue(reader["Cost"]), (string)SafeValue(reader["Currency"]), 
+                            (double)SafeValue(reader["CostGel"])
+                        )
+                    );
                 }
 
                 return cars;
