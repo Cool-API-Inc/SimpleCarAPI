@@ -6,14 +6,14 @@ _Note: Please Change Database Connection String Located In `SimpleCarAPI > Sourc
 
 ---
 #### Important Routes
-* __/API/*__ - CRUD Pages
-    * __/API/RegisterCar__ - Serves Car Registration
-    * __/API/UpdateCar__ - Server Modification Of Car Record
-    * __/API/DeleteCar__ - Serves Deletion Of Car Record
-    * __/API/GetCar__ - Can Be Used To View Info Of The Selected Car Or All Cars Registered
-    * __/API/GetProperties__ - To List All Features Of Selected Car
-    * __/API/SetProperties__ - To Modify/Delete/Add Features Of Selected Car
-* __/IMG/*__ - Uploaded Images 
+* [/API/*](https://github.com/Cool-API-Inc/SimpleCarAPI/blob/main/Source/CarAPI/Controllers/MainHandler.cs) - CRUD Pages
+    * [/API/RegisterCar](https://github.com/Cool-API-Inc/SimpleCarAPI/blob/main/Source/CarAPI/CrudOperations/Registration.cs) - Serves Car Registration
+    * [/API/UpdateCar](https://github.com/Cool-API-Inc/SimpleCarAPI/blob/main/Source/CarAPI/CrudOperations/Updation.cs) - Server Modification Of Car Record
+    * [/API/DeleteCar](https://github.com/Cool-API-Inc/SimpleCarAPI/blob/main/Source/CarAPI/CrudOperations/Deletion.cs) - Serves Deletion Of Car Record
+    * [/API/GetCar](https://github.com/Cool-API-Inc/SimpleCarAPI/blob/main/Source/CarAPI/CrudOperations/Selection.cs) - Can Be Used To View Info Of The Selected Car Or All Cars Registered
+    * [/API/GetProperties](https://github.com/Cool-API-Inc/SimpleCarAPI/blob/main/Source/CarAPI/CrudOperations/PropertySelection.cs) - To List All Features Of Selected Car
+    * [/API/SetProperties](https://github.com/Cool-API-Inc/SimpleCarAPI/blob/main/Source/CarAPI/CrudOperations/PropertyUpdation.cs) - To Modify/Delete/Add Features Of Selected Car
+* [/IMG/*](https://github.com/Cool-API-Inc/SimpleCarAPI/blob/main/Source/CarAPI/Controllers/ImageHandler.cs) - Uploaded Images 
 
 ---
 
