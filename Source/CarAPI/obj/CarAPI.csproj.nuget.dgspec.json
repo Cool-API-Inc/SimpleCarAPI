@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projects\\InternshipProjects\\CarAPI\\CarAPI\\CarAPI.csproj": {}
+    "D:\\Projects\\InternshipProjects\\GIT-For-CarAPI\\SimpleCarAPI\\Source\\CarAPI\\CarAPI.csproj": {}
   },
   "projects": {
-    "D:\\Projects\\InternshipProjects\\CarAPI\\CarAPI\\CarAPI.csproj": {
+    "D:\\Projects\\InternshipProjects\\GIT-For-CarAPI\\SimpleCarAPI\\Source\\CarAPI\\CarAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\InternshipProjects\\CarAPI\\CarAPI\\CarAPI.csproj",
+        "projectUniqueName": "D:\\Projects\\InternshipProjects\\GIT-For-CarAPI\\SimpleCarAPI\\Source\\CarAPI\\CarAPI.csproj",
         "projectName": "CarAPI",
-        "projectPath": "D:\\Projects\\InternshipProjects\\CarAPI\\CarAPI\\CarAPI.csproj",
+        "projectPath": "D:\\Projects\\InternshipProjects\\GIT-For-CarAPI\\SimpleCarAPI\\Source\\CarAPI\\CarAPI.csproj",
         "packagesPath": "C:\\Users\\Dato\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\InternshipProjects\\CarAPI\\CarAPI\\obj\\",
+        "outputPath": "D:\\Projects\\InternshipProjects\\GIT-For-CarAPI\\SimpleCarAPI\\Source\\CarAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
