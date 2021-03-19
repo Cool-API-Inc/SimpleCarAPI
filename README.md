@@ -86,7 +86,7 @@ If __id__  not specified, returns list of registered cars (along with success st
 ---
 
 ### Updating Features List
-Requires id parameter and takes optional booleans, if set, adds or removes coresponding feature (adds if "true" and removes if "false"). Returns number of features affected (along with success status).
+Requires id parameter and takes optional booleans, if set, adds or removes corresponding feature (adds if "true" and removes if "false"). Returns number of features affected (along with success status).
 
 ##### POST Parameters:
 1. id: the car to modify `[required]`
